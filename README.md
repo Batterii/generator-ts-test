@@ -43,5 +43,8 @@ already-imported chai `expect` API.
 ## What about Unit Tests?
 Unlike integration tests, unit tests are directly associated with a particular
 class or static module, so unit test files do not have their own generator. To
-create them, use the `@batterii/ts-class` or `@batterii/ts-module`, and they
-will be created alongside their associated lib files.
+create them, use [`@batterii/generator-ts-class`][1] or
+[`@batterii/generator-ts-module`][2].
+
+[1]: https://www.npmjs.com/package/@batterii/generator-ts-class
+[2]: https://www.npmjs.com/package/@batterii/generator-ts-module

@@ -1,0 +1,28 @@
+{
+	"name": "@batterii/generator-ts-test",
+	"version": "0.0.0",
+	"description": "Integration test generator for Batterii TypeScript projects",
+	"keywords": [
+		"yeoman-generator"
+	],
+	"author": "Batterii, LLC",
+	"license": "UNLICENSED",
+	"repository": "github:Batterii/generator-ts-test",
+	"files": [
+		"generators"
+	],
+	"main": "generators/app/index.js",
+	"scripts": {
+		"lint": "eslint .",
+		"lintf": "eslint . --fix",
+		"preversion": "npm run lint",
+		"prepublishOnly": "git push && git push --tags"
+	},
+	"dependencies": {
+		"@batterii/yeoman-helpers": "^0.1.0"
+	},
+	"devDependencies": {
+		"@batterii/eslint-config-node": "^1.0.6",
+		"eslint": "^5.14.1"
+	}
+}

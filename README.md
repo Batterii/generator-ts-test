@@ -12,6 +12,8 @@ Options:
         --skip-install   # Do not automatically install dependencies  Default: false
         --force-install  # Fail on install dependencies error         Default: false
   -n,   --name           # Name for the test block
+  -f,   --filename       # Name for the test file (no extension)
+
 ```
 
 ## The Test Block Name
@@ -29,8 +31,13 @@ Only letters, digits, dashes, spaces, and underscores are allowed in the test
 block name, simply because this subset of characters is much easier to convert
 to a name for the file that will be created.
 
+You can use the the `--filename` option to provide the name for the test file
+that will be created. If you provide it, you will want to omit the extension as
+`.ts` will be appended automatically. This will default to a name based on the
+test block name and should not usually need to be changed.
+
 ## The Created Test File
-When the generator hsa finished, a new file will have been created in the
+When the generator has finished, a new file will have been created in the
 `test/integration` directory. The file's name will the same as the test block
 name, except converted to satisfy file naming conventions. The test block name
 will also have '(Integration)' appended to it in the actual `describe` block.

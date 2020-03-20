@@ -1,4 +1,8 @@
-const { getFilename, validateName } = require('./utils');
+const {
+	getDefaultFilename,
+	validateFilename,
+	validateName,
+} = require('./utils');
 const { Generator } = require('@batterii/yeoman-helpers');
 
 class TestGenerator extends Generator {
@@ -13,14 +17,24 @@ class TestGenerator extends Generator {
 			message: 'Enter a name for the test block.',
 			validate: validateName,
 		});
+
+		this.optionPrompt({
+			type: 'input',
+			name: 'filename',
+			alias: 'f',
+			description: 'Name for the test file (no extension)',
+			message: 'Enter a name for the test file (no extension)',
+			default: () => getDefaultFilename(this.options),
+			validate: validateFilename,
+		});
 	}
 
 	addTest() {
-		// Create the filename from the name option.
-		const filename = getFilename(this.options.name);
-
 		// Create the new test file in the integration test directory.
-		this.copyTemplate('test.ts', `test/integration/${filename}.ts`);
+		this.copyTemplate(
+			'test.ts',
+			`test/integration/${this.options.filename}.ts`,
+		);
 	}
 }
 

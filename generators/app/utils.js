@@ -5,6 +5,11 @@ exports.validateName = function(name) {
 		'Test name may contain only word characters, dashes, and spaces';
 };
 
-exports.getFilename = function(name) {
-	return decamelize(name).replace(/[\W_]+/g, '-');
+exports.validateFilename = function(filename) {
+	return (/^[a-z0-9-]+$/).test(filename) ||
+		'File name must be dash-separated lower case';
+};
+
+exports.getDefaultFilename = function(name) {
+	return decamelize(name, '-').replace(/[\W_]+/g, '-');
 };

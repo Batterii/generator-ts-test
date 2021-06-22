@@ -11,5 +11,5 @@ exports.validateFilename = function(filename) {
 };
 
 exports.getDefaultFilename = function(name) {
-	return decamelize(name, "-").replace(/[\W_]+/g, "-");
+	return decamelize(name, "-").replace(/[\W_]+/g, {seprator: "-"});
 };
